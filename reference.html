@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference sheet</title>
+    <style>
+      p {
+        color: rgb(255, 0, 0);
+      }
+
+      #id-test {
+        background-color: rgb(0, 0, 255);
+      }
+
+      .class-test {
+        background-color: gray;
+      }
+
+      #font-family-general {
+        font-family: sans-serif;
+      }
+
+      #font-family-specific {
+        font-family: "Comic Sans MS", sans-serif;
+      }
+
+      #big-font {
+        font-size: 50px;
+      }
+
+      #bold {
+        font: italic bold 15px cursive;
+      }
+
+      #misc {
+        line-height: 1.5em;
+        text-align: center;
+        text-decoration: overline;
+        text-shadow: 10px 10px 1px pink;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>wOHAH</h1>
+    <p>cool websiet</p>
+
+    <h2> Woah!!! A subtitle!!! </h2>
+    <p>This is a reference document john made so he can see all the stuff you can do with HTML. <br>
+    Woah!!! It's magic!!!! <br>
+    I &lt;3 going to new lines</p>
+
+    <!-- List usage -->
+    <ol>
+      <li> first thing </li>
+      <li> second thing </li>
+    </ol>
+
+    <ul>
+      <li> first dot point </li>
+      <li> second dot point </li>
+    </ul>
+
+    <!-- This text uses ids. Ids must be unique (can't be used in multiple tags) -->
+    <p id="id-test">Here is text that is changing color using a css <em>id</em></p>
+
+    <!-- Image usage -->
+    <img src="images\Matthew.jpg" width=600 height=150 alt ="a picture of matt from wii sports">
+
+    <!-- Image that is also a link -->
+    <a href="https://youtu.be/jICV4c8mOO8?sifzNVAetX1ghoTP11">
+    <img src="images\Matthew.jpg" width=600 height=150 alt ="a picture of matt from wii sports"></a>
+
+    <!-- Class usage -->
+    <p class="class-test">Here is text that is changing color using a css <strong><em>class</em></strong></p>
+    <p> Classes can be around <strong class = "class-test">bold and italics tags</strong>. How novel!</p>
+
+    <!-- Different kinds of links -->
+    <a target="_blank" href="https://youtu.be/jICV4c8mOO8?sifzNVAetX1ghoTP11">This link will open in a new tab</a> <br>
+    <a href="https://youtu.be/jICV4c8mOO8?sifzNVAetX1ghoTP11">This link will not open in a new tab</a> <br>
+    <a href="#id-test">This link will seek to a certain part of the website</a>
+
+    <!-- Tables -->
+    <table>
+      <thead>
+        <tr>
+          <th>Heading 1</th>
+          <th>Heading 2</th>
+          <th>Heading 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Start of the first row</td>
+          <td>Fill 2</td>
+          <td>Fill 3</td>
+        </tr>
+        <tr>
+          <td>Start of the second row</td>
+           <td>Fill 2</td>
+           <td>Fill 3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Fonts -->
+    <p id="font-family-general">Oh look at me, I'm in a different font D:</p>
+    <p id="font-family-specific">Oh look at me, I'm in a different font D:</p>
+
+    <!-- Font Size -->
+    <p id="big-font"> Oh look at me, my font is ever so large!</p>
+    <!-- Note: Changing the font size of body will change the size of headings -->
+
+    <!-- Font bold without strong -->
+    <p id="bold">Oh look at me, my font is ever so bold!</p>
+
+    <!-- Miscellaneous text effects -->
+    <p id="misc">Oh would you look at that? This text is formatted so strangely! <br>
+    So... out of this world, so majestic, so GRANDIOSE! <br>
+    If ever I was to see text formatted such as thee I would collapse unto a pile of bile and nothingness.</p>
+
+    <!-- Other pages -->
+    <a href="echo">OOH another page!</a>
+
+  </body>
+</html>
