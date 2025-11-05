@@ -15,3 +15,8 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
+      - name: Update output.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: output.json
