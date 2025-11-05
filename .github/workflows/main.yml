@@ -20,3 +20,9 @@ jobs:
         with:
           name: output
           path: output.json
+      - name: Commit to main
+        run: |
+          git config --global user.name 'John Waters'
+          git config --global user.email 'jp.waters@hotmail.com'
+          git commit -m "Update output.json"
+          git push
