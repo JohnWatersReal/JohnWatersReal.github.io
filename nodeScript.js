@@ -6,8 +6,8 @@ fs.readdir(dir, (err, data) => {
     var standardNames = [];
     for (var i = 0; i < data.length; i++) {
         standardNames[i] = data[i];
+    }
     fs.writeFileSync("output.json", JSON.stringify(standardNames));
-}
 });
 
 
