@@ -5,6 +5,7 @@
 - Add mini support
 - Make it look prettier
 - Add accounts so people can see which crosswords they have done
+- Add a 'latest' tab
 
 
 ### On the code I have stolen from Frozen Pandaman
