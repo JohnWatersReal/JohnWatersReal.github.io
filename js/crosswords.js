@@ -1503,7 +1503,13 @@ function adjustColor(color, amount) {
 						}
 						break;
 					case 32: // space
-						if (this.selected_cell && this.selected_word) {
+						if (this.selected_cell.revealed) {
+							var next_cell = this.selected_word.getNextCell(
+									this.selected_cell.x,
+									this.selected_cell.y
+								);
+							this.setActiveCell(next_cell);
+						} else if (this.selected_cell && this.selected_word) {
 							// change the behavior based on the config
 							if (this.config.space_bar === 'space_switch') {
 								// check that there is a word in the other direction
@@ -1545,7 +1551,7 @@ function adjustColor(color, amount) {
 						}
 						break;
 					case 46: // delete
-						if (this.selected_cell) {
+						if (this.selected_cell && !this.selected_cell.revealed) {
 							this.selected_cell.letter = '';
 							this.selected_cell.checked = false;
 							this.autofill();
@@ -1553,16 +1559,17 @@ function adjustColor(color, amount) {
 						this.renderCells();
 						break;
 					case 8: // backspace
-						if (this.selected_cell && this.selected_word) {
+						if (this.selected_cell && this.selected_word && !this.selected_cell.revealed) {
 							this.selected_cell.letter = '';
 							this.selected_cell.checked = false;
 							this.autofill();
-							var prev_cell = this.selected_word.getPreviousCell(
+							
+						}
+						var prev_cell = this.selected_word.getPreviousCell(
 								this.selected_cell.x,
 								this.selected_cell.y
 							);
-							this.setActiveCell(prev_cell);
-						}
+						this.setActiveCell(prev_cell);
 						this.renderCells();
 						break;
 					case 9: // tab
@@ -1605,7 +1612,12 @@ function adjustColor(color, amount) {
 				var mychar = this.hidden_input.val().slice(0, 1).toUpperCase(),
 					next_cell;
 				if (this.selected_word && this.selected_cell) {
-					if (mychar) {
+					//I MADE THIS CODE
+					if (this.selected_cell.revealed) {
+						this.renderCells();
+						return;
+						// END OF MY CODE
+					} else if (mychar) {
 						this.selected_cell.letter = mychar;
 					} else if (rebus_string) {
 						this.selected_cell.letter = rebus_string.toUpperCase();
