@@ -9,7 +9,6 @@
 
 
 ### On the code I have stolen from Frozen Pandaman
-- Make it so you can't delete revealed characters
 - Maybe add swiping support on mobile 
 - Maybe a back to menu option in the crossword page
 - Make it so if the grid is filled incorrectly, a toast informing you that something is wrong shows up
