@@ -8,6 +8,13 @@
 
             .header {
                 font-weight: bold;
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            .table {
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
@@ -26,16 +33,26 @@
 
             function createTable(array) {
                 var table = document.createElement("table");
-                var th = table.createTHead();
-                th.className = "header";
-                th.innerHTML = "Standard";
+                var tHeader = table.createTHead();
+                var thStandard = document.createElement("th");
+                var thMini = document.createElement("th");
+                tHeader.appendChild(thStandard);
+                //tHeader.appendChild(thMini);
+                table.className = "table";
+                thStandard.className = "header";
+                thStandard.innerHTML = "Standard";
+                //thMini.className = "header";
+                //thMini.innerHTML = "Mini";
                 for (var i = 0; i < array.length; i++) {
                     var tr = table.insertRow();
                     var td = tr.insertCell();
                     console.log(array[i]);
                     var address = parseAddress(array[i]);
                     var nameWithSpace = array[i].slice(0, array[i].indexOf('.'));
-                    console.log(tr.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>");
+                    console.log(td.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>");
+                    //var otherTd = tr.insertCell();
+                    //otherTd.innerHTML = "weeeee";
+
                 }
                 document.body.appendChild(table);
             }
