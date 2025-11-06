@@ -6,38 +6,47 @@
         <meta name="HandheldFriendly" content="True">
         <style>
 
+            .header {
+                font-weight: bold;
+            }
 
 
         </style>
     </head>
     <body>
         
-        <table>
-            <tr>
-                <th>Big</th>
-                <th>Mini</th>
-            </tr>
-        </table>
-
-        <p id="Output">Test</p>
-
         <script>
 
-            // Get the data for a directory
-            const fs = require('fs');
-            const dir = './Crosswords/Collection 1/Standard';
-
-            fs.readdir(dir, (err, data) => {
-            console.log(data.length);
-            });
-
-            var standardNames = [];
-            for (var i = 0; i < data.length; i++) {
-                standardNames[i] = data[i];
+            function parseAddress(name) {
+                var address = "open.html?file=Crosswords/Collection%201/Standard/" + name;
+                address = address.replaceAll("'", "%27");
+                address = address.replaceAll(' ', "%20");
+                return address;
             }
 
-            var testprint = document.getElementById("Output");
-            testprint.innerHTML = standardNames[0];
+            function createTable(array) {
+                var table = document.createElement("table");
+                var th = table.createTHead();
+                th.className = "header";
+                th.innerHTML = "Standard";
+                for (var i = 0; i < array.length; i++) {
+                    var tr = table.insertRow();
+                    var td = tr.insertCell();
+                    console.log(array[i]);
+                    var address = parseAddress(array[i]);
+                    var nameWithSpace = array[i].slice(0, array[i].indexOf('.'));
+                    console.log(tr.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>");
+                }
+                document.body.appendChild(table);
+            }
+
+            fetch("output.json")
+                .then(response => response.json())
+                .then(jsonData => {
+                    standardNames = jsonData;
+                    var testprint = document.getElementById("Output");
+                    createTable(standardNames);
+                })           
 
         </script>
 

@@ -26,15 +26,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 * Overlay: opening files
 **/
 
-div.stolen-goods {
-	width: 50%;
-	height: 50%;
-	position: absolute;
-	margin: auto;
-	border: 3px solid black;
-	left: 25%;
-	top: 25%;
-}
 
 div.cw-open-holder {
 	position: absolute;

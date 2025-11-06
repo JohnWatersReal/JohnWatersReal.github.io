@@ -789,7 +789,7 @@ function adjustColor(color, amount) {
 			completeLoad() {
 				$('.cw-header').html(`
 					<span class="cw-title">${escape(this.title)}</span>
-					<span class="cw-author">by ${escape(this.author)}</span>
+					<span class="cw-author"> by John Waters ${escape(this.author)}</span>
 				${ this.notes ? `<button class="cw-button cw-button-notes">Notes</button>` : '' }
 					<span class="cw-flex-spacer"></span>
 					<span class="cw-copyright">${escape(this.copyright)}</span>
