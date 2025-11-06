@@ -1669,6 +1669,9 @@ function adjustColor(color, amount) {
 				// show completion message
 				var solvedMessage = escape(this.msg_solved).replaceAll('\n', '<br />');
 				this.createModalBox(solvedMessage);
+				// play jingle
+				var audio = new Audio("assets/Crowd.mp3");
+				audio.play();;
 			}
 
 			// callback for shift+arrows

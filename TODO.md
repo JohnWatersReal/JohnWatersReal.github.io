@@ -13,4 +13,4 @@
 - Maybe add swiping support on mobile 
 - Maybe a back to menu option in the crossword page
 - Make it so if the grid is filled incorrectly, a toast informing you that something is wrong shows up
-- Finishing jingle maybe
+- Make it so circles don't overlap with numbers
