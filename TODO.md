@@ -4,7 +4,8 @@
 - Change the file 'Crossword.ipuz' so it's not named 'Crossword.ipuz'
 - Add mini support
 - Make it look prettier
-- Add accounts so people can see which crosswords they have done
+- Add logout button
+- Double check security
 - Add a 'latest' tab
 
 

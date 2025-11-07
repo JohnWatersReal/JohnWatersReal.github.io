@@ -33,6 +33,11 @@
                 margin-right: 10px;
             }
 
+            .done a {
+                color: red;
+                text-decoration: line-through;
+            }
+
 
         </style>
     </head>
@@ -44,9 +49,7 @@
         <p id="test"></p>
         
        
-        <script src="firebaseIndex.js" type="module">
-            
-        </script>
+        
         <script>
 
             function parseAddress(name) {
@@ -74,6 +77,8 @@
                     var address = parseAddress(array[i]);
                     var nameWithSpace = array[i].slice(0, array[i].indexOf('.'));
                     td.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>";
+                    td.id = nameWithSpace;
+                    console.log(td.id);
                     //var otherTd = tr.insertCell();
                     //otherTd.innerHTML = "weeeee";
 
@@ -89,8 +94,10 @@
                     createTable(standardNames);
                 })       
                 
-        
+        </script>
 
+        <script src="firebaseIndex.js" type="module">
+            
         </script>
 
     </body>

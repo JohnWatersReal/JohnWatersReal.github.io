@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+import { getFirestore, getDoc, doc, collection, } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,25 +15,43 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth();
 
+// Sign in message
 console.log(auth.currentUser);
 if (auth.currentUser !== null) {
-    document.getElementById("test").innerHTML = "Signed in as: " + user.email;
+    document.getElementById("test").innerHTML = "Signedg in as: " + user.email;
 }
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
+        // User is signed in
         const uid = user.uid;
-        console.log("changed");
         document.getElementById("test").innerText = "Signed in as: " + user.email;
+        const docRef = doc(db, "users", uid);
+        getDoc(docRef).then((docSnap) => {
+            changeDone(docSnap.data().completed);
+        
+        });  
+       
         // ...
     } else {
         // User is signed out
         // ...
     }
     });
+
+function changeDone(array) {
+
+    for (var i = 0; i < array.length; i++) {
+        if (document.getElementById(array[i]) !== null) {
+            document.getElementById(array[i]).className = "done";
+            console.log(document.getElementById(array[i]));
+        }
+        
+    }    
+
+}

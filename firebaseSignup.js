@@ -40,8 +40,10 @@ signUp.addEventListener('submit', function(e) {
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            setDoc(doc(db, "users", "poo"), {
-                id: "poo"
+            console.log(userCredential.user.uid);
+            setDoc(doc(db, "users", userCredential.user.uid), {
+                id: userCredential.user.uid,
+                completed: ["Fare's Fair"]
             });
             alert("Created account successfully!");
         })
