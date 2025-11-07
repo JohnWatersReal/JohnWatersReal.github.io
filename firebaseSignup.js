@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+import { getFirestore, setDoc, doc } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,6 +15,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth();
@@ -38,7 +40,10 @@ signUp.addEventListener('submit', function(e) {
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-        alert("Created account successfully!");
+            setDoc(doc(db, "users", "poo"), {
+                id: "poo"
+            });
+            alert("Created account successfully!");
         })
         .catch((error) => {
         alert("Failed with error code: " + error.code + "\n" + error.message);
