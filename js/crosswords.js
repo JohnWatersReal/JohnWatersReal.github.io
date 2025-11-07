@@ -1683,7 +1683,9 @@ function adjustColor(color, amount) {
 				this.createModalBox(solvedMessage);
 				// play jingle
 				var audio = new Audio("assets/Crowd.mp3");
-				audio.play();;
+				audio.play();
+				document.dispatchEvent(new Event("finished"));
+
 			}
 
 			// callback for shift+arrows

@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
-import { getFirestore, setDoc, doc } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js';
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -43,7 +43,7 @@ signUp.addEventListener('submit', function(e) {
             console.log(userCredential.user.uid);
             setDoc(doc(db, "users", userCredential.user.uid), {
                 id: userCredential.user.uid,
-                completed: ["Fare's Fair"]
+                completed: []
             });
             alert("Created account successfully!");
         })

@@ -20,6 +20,9 @@
         <!-- for dark mode -->
         <script src="js/darkreader.js"></script>
 
+        <!-- for sending complete data to firebase -->
+        <script type="module" src="firebaseRender.js"></script>
+
         <style>
             html, body {
                 /* height: 100%; */
@@ -50,7 +53,6 @@
             // Grab puzzle from query string if available
             var url = new URL(window.location.href);
             var puzzle = url.searchParams.get("file");
-            console.log(puzzle);
             if (!puzzle) puzzle = url.searchParams.get("puzzle");
             var params = {};
             if (puzzle) {
