@@ -7,6 +7,7 @@
 - Add logout button
 - Double check security
 - Add a 'latest' tab
+- Move files so that i have some folders and everything isn't incredibly messy
 
 
 ### On the code I have stolen from Frozen Pandaman
