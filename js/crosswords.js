@@ -111,6 +111,7 @@ function adjustColor(color, amount) {
 
 		// messages
 		var MSG_SOLVED = 'Crossword solved! Congratulations!';
+		var MSG_UNSOLVED = 'Uhh... you did something wrong silly goose!'
 
 		var TYPE_UNDEFINED = typeof undefined;
 
@@ -467,6 +468,9 @@ function adjustColor(color, amount) {
 
 				// Solution message
 				this.msg_solved = MSG_SOLVED;
+
+				// Dissolution messgae
+				this.msg_unsolved = MSG_UNSOLVED;
 
 				// whether to show the reveal button
 				this.has_reveal = true;
@@ -1658,11 +1662,7 @@ function adjustColor(color, amount) {
 					for (j in this.cells[i]) {
 						cell = this.cells[i][j];
 						// if found cell without letter or with incorrect letter - return
-						if (
-							!cell.empty &&
-							(!cell.letter || !isCorrect(cell.letter, cell.solution) &&
-							cell.letter.constructor !== Array) // fine if there are multiple answers
-						) {
+						if (!cell.empty && (!cell.letter || !isCorrect(cell.letter, cell.solution) && cell.letter.constructor !== Array)) {
 							return;
 						}
 					}

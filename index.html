@@ -24,11 +24,28 @@
                 font-size: 2em;
             }
 
+            #test {
+                text-align: right;
+            }
+
+            #signinbutton {
+                float: left;
+                margin-right: 10px;
+            }
+
 
         </style>
     </head>
     <body>
         
+        <form action="/signIn.html">
+            <input id="signinbutton" type="button" onclick="location.href='/signIn.html'" value="Sign In">
+        </form>
+        <p id="test"></p>
+       
+        <script src="firebaseIndex.js" type="module">
+            
+        </script>
         <script>
 
             function parseAddress(name) {
@@ -53,10 +70,9 @@
                 for (var i = 0; i < array.length; i++) {
                     var tr = table.insertRow();
                     var td = tr.insertCell();
-                    console.log(array[i]);
                     var address = parseAddress(array[i]);
                     var nameWithSpace = array[i].slice(0, array[i].indexOf('.'));
-                    console.log(td.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>");
+                    td.innerHTML = "<a href=" + address + ">" + nameWithSpace + "</a>";
                     //var otherTd = tr.insertCell();
                     //otherTd.innerHTML = "weeeee";
 
@@ -70,7 +86,9 @@
                     standardNames = jsonData;
                     var testprint = document.getElementById("Output");
                     createTable(standardNames);
-                })           
+                })       
+                
+        
 
         </script>
 
