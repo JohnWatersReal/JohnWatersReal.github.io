@@ -4,7 +4,12 @@ import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWith
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-   
+  apiKey: "AIzaSyAgpprjzCJEaepUQe-DAbKcNXGyKHLrDss",
+  authDomain: "crossword-8f267.firebaseapp.com",
+  projectId: "crossword-8f267",
+  storageBucket: "crossword-8f267.firebasestorage.app",
+  messagingSenderId: "499856655517",
+  appId: "1:499856655517:web:79847c18ff99be2f560074"
 };
 
 // Initialize Firebase
