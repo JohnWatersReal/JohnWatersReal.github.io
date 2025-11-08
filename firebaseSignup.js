@@ -95,7 +95,8 @@ onAuthStateChanged(auth, (user) => {
         // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
         console.log("changed");
-        document.getElementById("test").innerHTML = "Signed in as: " + user.email;
+        document.getElementById("test").innerHTML = "You are already signed in as: " + user.email;
+        document.getElementById("mainBlock").style.display = "none";
         // ...
     } else {
         // User is signed out
