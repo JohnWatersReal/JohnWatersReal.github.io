@@ -14,8 +14,9 @@
             }
 
             .table {
-                margin-left: auto;
-                margin-right: auto;
+                margin-left: 10%;
+                margin-right: 10%;
+                width:80%;
                 text-align: center;
                 font-family: "Comic Sans MS", cursive;
             }
@@ -30,7 +31,6 @@
 
             #signinbutton {
                 float: left;
-                margin-right: 10px;
             }
 
             .done a {
@@ -43,15 +43,20 @@
     </head>
     <body>
         
-        <form action="/signIn.html">
-            <input id="signinbutton" type="button" onclick="location.href='/signIn.html'" value="Sign In">
-        </form>
-        <p id="test"></p>
+        <div>
+
+            <form action="/signIn.html">
+                <input id="signinbutton" type="button" onclick="location.href='/signIn.html'" value="Sign In">
+            </form>
+            <p id="test"></p>
+        
+        </div>
+
+        <div id="tableDiv"></div>
         
        
         
         <script>
-
             function parseAddress(name) {
                 var address = "open.html?file=Crosswords/Collection%201/Standard/" + name;
                 address = address.replaceAll("'", "%27");
@@ -60,6 +65,7 @@
             }
 
             function createTable(array) {
+                var div = document.getElementById("tableDiv");
                 var table = document.createElement("table");
                 var tHeader = table.createTHead();
                 var thStandard = document.createElement("th");
@@ -81,9 +87,8 @@
                     console.log(td.id);
                     //var otherTd = tr.insertCell();
                     //otherTd.innerHTML = "weeeee";
-
                 }
-                document.body.appendChild(table);
+                div.appendChild(table);
             }
 
             fetch("output.json")
@@ -95,10 +100,8 @@
                 })       
                 
         </script>
-
-        <script src="firebaseIndex.js" type="module">
-            
-        </script>
+        
+        <script src="firebaseIndex.js" type="module"></script>
 
     </body>
 
