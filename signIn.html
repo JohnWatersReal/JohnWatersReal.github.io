@@ -3,36 +3,110 @@
     <head>
         <title>Sign In</title>
 
+        <style>
+
+            #mainBlock {
+
+                padding: 10px;
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid black;
+
+            }
+
+            .signInEmailLabel {
+
+                display: block;
+                width: 20%;
+                float: left;
+            }
+
+            .field {
+
+                width: 67%
+
+            }
+
+            #change {
+                background-color: white;
+                border: none;
+                text-decoration: underline;
+                color: blue;
+                text-align: center;
+                width:75%;
+                margin-left: 12.5%;
+                margin-right: 12.5%;
+                margin-top: 10px;
+            }
+
+            #change:hover {
+                color: purple;
+                cursor: pointer;
+            }
+
+            .submitButton {
+
+                margin-left: 40%;
+                margin-right: 40%;
+                width: 20%;
+                margin-top:10px;
+
+            }
+
+        </style>
+
     </head>
     <body>
 
         <p id="test">Wow! What a pretty website! <br><br>
         New to the site? Sign up!
         </p>
-        <form id="signUp">
-            <label for="signUpEmail">Email</label>
-            <input type="text" id="signUpEmail" name="sUEmail">
-            <label for="signUpPassword">Password</label>
-            <input type="text" id="signUpPassword" name="sUPassword" autocomplete="off">
-            <input type="submit" id="signUpButton" value="Sign Up">
-        </form>
-        <p>Already have an account? Sign in!</p>
-        <form id="signIn">
-            <label for="signInEmail">Email</label>
-            <input type="text" id="signInEmail" name="sIEmail">
-            <label for="signUpPassword">Password</label>
-            <input type="text" id="signInPassword" name="sIPassword" autocomplete="off">
-            <input type="submit" id="signInButton" value="Sign In">
-        </form>
-
+        <div id="mainBlock">
+            <div id="createAccountBlock">
+                <h2 style="text-align: center">Create Account</h2>
+                <form id="signUp">
+                    <label for="signUpEmail" class="signInEmailLabel">Email</label>
+                    <input type="text" id="signUpEmail" name="sUEmail" class="field">
+                    <br>
+                    <label for="signUpPassword" class="signInEmailLabel">Password</label>
+                    <input type="text" id="signUpPassword" name="sUPassword" autocomplete="off" class="field">
+                    <br>
+                    <input type="submit" id="signUpButton" value="Sign Up" class="submitButton">
+                </form>
+             </div>
+            <div id="signInBlock">
+                <h2 style="text-align: center">Log In</h2>
+                <form id="signIn">
+                    <label for="signInEmail" class="signInEmailLabel">Email</label>
+                    <input type="text" id="signInEmail" name="sIEmail" class="field">
+                    <br>
+                    <label for="signUpPassword" class="signInEmailLabel">Password</label>
+                    <input type="text" id="signInPassword" name="sIPassword" autocomplete="off" class="field">
+                    <br>
+                    <input type="button" id="change" value="Don't have an account? Sign up to save your progress!">
+                    <br>
+                    <input type="submit" id="signInButton" value="Sign In" class="submitButton">
+                </form>
+            </div>
+        </div>
         <br>
 
         <a href="index.html">Click here to go back</a>
         
-        
-        <script src="firebaseSignup.js" type="module">
-            
-            
+        <script src="firebaseSignup.js" type="module"></script>
+        <script>
+
+            var otherBlock = document.getElementById("createAccountBlock");
+            otherBlock.style.display = "none";
+            var button = document.getElementById("change");
+
+            function onClick() {
+                otherBlock.style.display = "initial";
+                document.getElementById("signInBlock").style.display = "none";
+            }
+            button.addEventListener("click", onClick);
+
         </script>
 
     </body>
