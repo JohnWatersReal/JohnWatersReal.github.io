@@ -7,6 +7,6 @@
   "type": "commonjs",
   "main": "yes",
   "scripts": {
-    "build": "node nodeScript.js"
+    "build": "node js/nodeScript.js"
   }
 }
