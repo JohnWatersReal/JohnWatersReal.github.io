@@ -1,7 +1,5 @@
 ## Things to do:
 ### On my code:
-- Fix the build so it deploys the artifact
-- Change the file 'Crossword.ipuz' so it's not named 'Crossword.ipuz'
 - Add mini support
 - Make it look prettier
 - Add logout button
