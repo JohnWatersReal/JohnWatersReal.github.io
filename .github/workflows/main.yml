@@ -22,6 +22,7 @@ jobs:
           path: output.json
       - name: Commit and push output.json
         run: |
+          git config --global --add safe.directory /__w/${{ github.repository }}/${{ github.repository }}
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
