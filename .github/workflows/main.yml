@@ -5,32 +5,37 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     container:
       image: node:20
+    permissions:
+      contents: write 
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: 20
-      - run: npm install
-      - run: npm run build
-      - name: Update output.json
-        uses: actions/upload-artifact@v4
-        with:
-          name: output
-          path: output.json
-      - name: Commit and push output.json
+          persist-credentials: true 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Mark working directory as safe
         run: |
-          git config --global --add safe.directory /__w/${{ github.repository }}/${{ github.repository }}
+          git config --global --add safe.directory "$(pwd)"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add output.json
+      - name: Commit and push output.json
+        run: |
+          git add output.json || echo "No output.json found."
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Update build artifact: output.json"
             git push
           fi
-     
